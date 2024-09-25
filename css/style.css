@@ -89,6 +89,7 @@ h2{
     -moz-border-radius: 30px;
     -ms-border-radius: 30px;
     -o-border-radius: 30px;
+    user-select: none;
 }
 
 
@@ -104,18 +105,48 @@ h2{
 #taskSection>li{
     padding-bottom: 40px;
 }
-#taskSection::before{
-    background-image: url("../img/unchecked.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+ul li{
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-left: 55px;
 }
 
-/* 
-checked 
+ul li::before{
+    content: "";
+    height: 28px;
+    width: 28px;
+    position: absolute;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-image: url("../img/unchecked.png");
+    background-size: cover;
+    background-position: center;
+    top: 0px;
+    left: 0px;
+}
 
-color : #555
 
-text-decoration : line-through
 
-*/
+
+
+ul li.checked{
+
+    color : #555;
+
+    text-decoration : line-through;
+} 
+
+
+ul li.checked::before{
+
+    background-image: url("../img/checked.png");
+
+
+} 
+
+
+
