@@ -1,5 +1,7 @@
     let tasks = [];
-
+    let inputField = document.getElementById("input");
+    let taskSpace = document.getElementById("taskSection");
+console.log(inputField);
 function addTask() {
     let inputField = document.getElementById("input");
     let taskValue = inputField.value.trim(); //trim for remove any spaces
@@ -19,10 +21,14 @@ function addTask() {
         return;
     }
 
-    let taskSpace = document.getElementById("taskSection");
+    
     let li = document.createElement("li");
     li.innerHTML = taskValue;
     taskSpace.appendChild(li);
+
+    let span = document.createElement("span");
+    span.innerHTML = "\u00d7";
+    li.appendChild(span);
     
     tasks.push(taskValue);
     console.log("Task added: ", taskValue);
@@ -30,3 +36,14 @@ function addTask() {
     
     inputField.value = '';
 }
+
+
+taskSpace.addEventListener("click",function(e){
+    if (e.target.tagName === "LI") {
+        e.target.classList.toggle("checked")
+    }
+    if (e.target.tagName === "SPAN") {
+        console.log(tasks.indexOf(e.target.value))
+        e.target.parentElement.remove();
+    }
+})

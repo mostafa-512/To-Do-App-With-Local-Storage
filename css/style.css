@@ -14,7 +14,6 @@
 body{
     height: 100vh;
     width: 100%;
-    background: rgb(2,0,36);
     background: linear-gradient(135deg, #153677 , #4e085f);
     display: flex;
     justify-content: center;
@@ -148,5 +147,23 @@ ul li.checked::before{
 
 } 
 
-
+ul li span{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+ul li span:hover{
+    background-color: #edeef0;
+}
 
