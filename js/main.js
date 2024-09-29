@@ -1,11 +1,11 @@
     let tasks = [];
     let inputField = document.getElementById("input");
     let taskSpace = document.getElementById("taskSection");
-console.log(inputField);
-function addTask() {
-    let inputField = document.getElementById("input");
-    let taskValue = inputField.value.trim(); //trim for remove any spaces
     
+    
+    function addTask() {
+    let taskValue = inputField.value.trim(); //trim for remove any spaces
+        
     if (taskValue === '') {
         alert("You Must Write Something !!");
         return;
@@ -29,8 +29,7 @@ function addTask() {
     let span = document.createElement("span");
     span.innerHTML = "\u00d7";
     li.appendChild(span);
-    
-    tasks.push(taskValue);
+    addTaskToArray(taskValue)
     console.log("Task added: ", taskValue);
     console.log("Current tasks: ", tasks);
     
@@ -43,7 +42,17 @@ taskSpace.addEventListener("click",function(e){
         e.target.classList.toggle("checked")
     }
     if (e.target.tagName === "SPAN") {
-        console.log(tasks.indexOf(e.target.value))
         e.target.parentElement.remove();
     }
-})
+});
+
+
+function addTaskToArray(tasktext) {
+    let task = {
+        id : Date.now(),
+        taskName : tasktext,
+        completed : false,
+    };
+    tasks.push(task);
+    // return;
+}
