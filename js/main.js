@@ -98,9 +98,18 @@ taskSpace.addEventListener("click", function(e) {
         setInLocal(); // Update local storage
 
         e.target.parentElement.remove();
+
+    }
+
+
+    if (e.target.tagName === "SPAN") {
+        let taskToDelete = e.target.parentElement.innerText.slice(0, -1); 
+        tasks = tasks.filter(task => task !== taskToDelete); 
+        e.target.parentElement.remove(); 
         console.log("Task deleted: ", taskToDelete);
         console.log("Remaining tasks: ", tasks);
     }
+
 });
 
 input.addEventListener("keypress", function(event) {
