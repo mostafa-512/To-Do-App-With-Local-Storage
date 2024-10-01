@@ -76,7 +76,7 @@ h2{
 }
 
 
-.add{
+.add,.clear{
     color: #fff;
     background-color: rgb(255 88 69);
     border: none;
@@ -89,6 +89,13 @@ h2{
     -ms-border-radius: 30px;
     -o-border-radius: 30px;
     user-select: none;
+}
+
+input::placeholder{
+    user-select: none;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 
